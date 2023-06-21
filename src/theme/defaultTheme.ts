@@ -6,7 +6,7 @@ const Theme = {
   },
 
   fonts: {
-    primary: "Montserrat",
+    primary: "Roboto",
 
     sizes: {
       xlarge: "22px",
