@@ -1,11 +1,14 @@
-import './App.css'
+import { ThemeProvider } from 'styled-components'
+import Theme from './theme/defaultTheme'
 
-function App() {
+const App = () => {
 
   return (
-    <>
-      Hello World!
-    </>
+    <ThemeProvider theme={Theme}>
+      <>
+        Hello World
+      </>
+    </ThemeProvider>
   )
 }
 
