@@ -2,7 +2,8 @@ const Theme = {
   colors: {
     primary: "#7695ec",
     warning: "#ff5151",
-    success: "#47b960"
+    success: "#47b960",
+    grey:'#333'
   },
 
   fonts: {
