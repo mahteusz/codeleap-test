@@ -1,22 +1,37 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import * as S from './styled'
 import Button from '../Button'
 import { useDispatch } from 'react-redux'
 import { login } from '../../actions/auth'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { State } from '../../redux/reducers'
+import Spinner from '../Spinner'
 
 const LoginForm = () => {
+  const [loading, setLoading] = useState<boolean>(true)
   const [username, setUsername] = useState<string>('')
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const auth = useSelector((state: State) => state.auth)
 
   const onSubmit = () => {
     dispatch(login({ username }))
     navigate("/home")
   }
 
+  const redirectWhenLoggedIn = () => {
+    if(auth.username) navigate("/home")
+  }
+
+  useEffect(() => {
+    redirectWhenLoggedIn()
+    setLoading(false)
+  }, [])
+
   return (
+    loading ? <Spinner /> : 
     <S.FormContainer>
       <S.ContainerTitle>
         Welcome to the CodeLeap Network!
