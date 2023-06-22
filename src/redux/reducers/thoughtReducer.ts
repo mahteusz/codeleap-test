@@ -28,8 +28,8 @@ const thoughtReducer = (state = initialState, action: ThoughtActions) => {
     case "READ_THOUGHTS":
       return {
         ...state,
-        data: [...state.data, ...action.payload.thoughts],
-        currentOffset: action.payload.currentOffset + offsetStep 
+        data: [...state.data, ...action.payload],
+        currentOffset: state.currentOffset + offsetStep
       }
 
     case "UPDATE_THOUGHT":

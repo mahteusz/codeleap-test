@@ -9,6 +9,7 @@ import {
   from "../../actions/"
 import { useDispatch, useSelector } from "react-redux"
 import { State } from "../../redux/reducers"
+import store from '../../redux'
 
 const Home = () => {
   const [title, setTitle] = useState<string>('')
@@ -19,7 +20,7 @@ const Home = () => {
   const [isLoadingData, setIsLoadingData] = useState<boolean>(true)
 
   const dispatch = useDispatch()
-  const thoughts = useSelector((state: State) => state.thought)
+  const { data } = useSelector((state: State) => state.thought)
 
   const handleUpdate = (id: number) => {
     const thought = findThought(id)
@@ -35,8 +36,8 @@ const Home = () => {
   }
 
   const findThought = (id: number) => {
-    const found = thoughts.data.findIndex(thought => thought.id === id)
-    return thoughts.data[found]
+    const found = data.findIndex(thought => thought.id === id)
+    return data[found]
   }
 
   const handleUpdateSubmit = async () => {
@@ -60,8 +61,8 @@ const Home = () => {
   }
 
   const fetchData = async () => {
-    const allThoughts = await readThoughtsRequest(thoughts.currentOffset)
-    dispatch(readThoughts(allThoughts, thoughts.currentOffset))
+    const allThoughts = await readThoughtsRequest(store.getState().thought.currentOffset)
+    dispatch(readThoughts(allThoughts))
     setIsLoadingData(false)
   }
 
@@ -128,7 +129,7 @@ const Home = () => {
       <S.ContentContainer>
         <HomeContent />
         {
-          thoughts.data.map(thought => {
+          data.map(thought => {
             return (
               <ThoughtCard
                 thought={
