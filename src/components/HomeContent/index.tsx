@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import Button from '../Button'
 import * as S from './styled'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { State } from '../../redux/reducers'
 import { createThoughtRequest } from '../../actions/requests/thought'
 import { createThought } from '../../actions/thought'
+import ThoughtForm from '../ThoughtForm'
 
 const HomeContent = () => {
 
@@ -33,44 +33,13 @@ const HomeContent = () => {
           CodeLeap Network
         </S.HeaderTitle>
       </S.Header>
-
-      <S.ThoughtForm>
-        <S.ThoughtFormTitle>
-          What's on your mind?
-        </S.ThoughtFormTitle>
-
-        <S.ThoughtFormItem>
-          <S.ThoughtFormLabel>
-            Title
-          </S.ThoughtFormLabel>
-          <S.ThoughtFormInput
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
-            placeholder='Hello world'
-          />
-        </S.ThoughtFormItem>
-
-        <S.ThoughtFormItem>
-          <S.ThoughtFormLabel>
-            Content
-          </S.ThoughtFormLabel>
-          <S.ThoughtFormTextArea
-            onChange={(e) => setContent(e.target.value)}
-            value={content}
-            placeholder='Content here' />
-        </S.ThoughtFormItem>
-
-        <Button
-          onClick={handleSubmit}
-          styleProps={{
-            variant: 'primary',
-            alignSelf: 'flex-end'
-          }}
-        >
-          Create
-        </Button>
-      </S.ThoughtForm>
-
+      <ThoughtForm
+        content={content}
+        title={title}
+        onContentChange={setContent}
+        onTitleChange={setTitle}
+        onSubmit={handleSubmit}
+      />
     </S.Container>
   )
 }
