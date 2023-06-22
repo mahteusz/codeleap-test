@@ -1,7 +1,12 @@
-import Button from '../Button'
+import { useState } from 'react'
 import * as S from './styled'
+import ThoughtForm from '../ThoughtForm'
 
 const HomeContent = () => {
+
+  const [title, setTitle] = useState<string>('')
+  const [content, setContent] = useState<string>('')
+
   return (
     <S.Container>
       <S.Header>
@@ -9,36 +14,17 @@ const HomeContent = () => {
           CodeLeap Network
         </S.HeaderTitle>
       </S.Header>
-
-      <S.PostForm>
-        <S.PostFormTitle>
-          What's on your mind?
-        </S.PostFormTitle>
-
-        <S.PostFormItem>
-        <S.PostFormLabel>
-          Title
-        </S.PostFormLabel>
-        <S.PostFormInput placeholder='Hello world'/>
-        </S.PostFormItem>
-
-        <S.PostFormItem>
-        <S.PostFormLabel>
-          Content
-        </S.PostFormLabel>
-        <S.PostFormTextArea placeholder='Content here'/>
-        </S.PostFormItem>
-
-        <Button 
-          onClick={() => {}}
-          styleProps={{
-            variant: 'primary',
-            alignSelf: 'flex-end'
-          }}
-        >
-          Create
-        </Button>
-      </S.PostForm>
+      <S.FormContainer>
+        <ThoughtForm
+          type='create'
+          border
+          padding
+          content={content}
+          title={title}
+          onContentChange={setContent}
+          onTitleChange={setTitle}
+        />
+      </S.FormContainer>
     </S.Container>
   )
 }

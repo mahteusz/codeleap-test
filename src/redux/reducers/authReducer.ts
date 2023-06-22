@@ -1,11 +1,11 @@
-import { Actions } from "../../actions/types"
+import { AuthActions } from "../../actions/types"
 import { User } from "./types"
 
 const initialState: User = {
   username: null
 }
 
-const authReducer = (state: User = initialState, action: Actions) => {
+const authReducer = (state: User = initialState, action: AuthActions) => {
   switch (action.type) {
     case "LOGIN":
       return {
