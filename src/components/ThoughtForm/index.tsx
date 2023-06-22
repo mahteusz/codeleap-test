@@ -19,7 +19,7 @@ const ThoughtForm = ({ type, title, content, border, padding, onTitleChange, onC
       })
       dispatch(createThought(thought))
     } catch (error) {
-      console.warn("An error ocurred")
+      console.warn("An error ocurred", error)
     }
   }
 

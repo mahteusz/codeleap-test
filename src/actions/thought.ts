@@ -1,6 +1,5 @@
 import { Thought } from "../redux/reducers/";
-import { UpdateThought } from "./types"
-import { ThoughtActionTypes } from "./types";
+import { UpdateThought, ThoughtActionTypes } from "./types"
 
 export const createThought = (thought: Thought) => {
   return {

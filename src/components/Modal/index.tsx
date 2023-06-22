@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import * as S from './styled'
 import { Props } from './types'
-import Button from '../Button'
+import { Button } from '..'
 
 const Modal = ({ title, open, children, confirmButton, onClose }: Props) => {
 
