@@ -7,6 +7,10 @@ import { Props } from './types'
 
 const ThoughtCard = ({ thought, onDelete, onEdit }: Props) => {
 
+  const formatUsername = () => {
+    return `@${thought.username}`
+  }
+
   const auth = useSelector((state: State) => state.auth)
 
   return (
@@ -26,7 +30,7 @@ const ThoughtCard = ({ thought, onDelete, onEdit }: Props) => {
       <S.CardContentContainer>
         <S.CardContentHeader>
           <S.CardContentUser>
-            {thought.username}
+            {formatUsername()}
           </S.CardContentUser>
           <S.CardContentTime>
             {new Date(thought.created_datetime).toDateString()}
