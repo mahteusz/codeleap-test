@@ -8,6 +8,10 @@ export const Container = styled.article`
   border-radius:${props => props.theme.border.radius.default}px
                 ${props => props.theme.border.radius.default}px
                 0 0;
+  
+  >:last-child {
+    margin-bottom:${props => props.theme.spacing.default}px;
+  }
 `
 
 export const CardHeader = styled.header`
@@ -33,6 +37,9 @@ export const CardContentContainer = styled.div`
   flex-direction:column;
   border: 1px solid ${props => props.theme.colors.grey};
   padding:${props => props.theme.spacing.default}px;
+  border-radius:0 0 
+                ${props => props.theme.border.radius.default}px
+                ${props => props.theme.border.radius.default}px;
 `
 
 export const CardContentHeader = styled.div`
