@@ -1,4 +1,4 @@
-import { Thought } from "../../redux/reducers/types"
+import { Thought } from "../../redux/reducers/"
 import { UpdateThought } from "../types"
 
 const url = "https://dev.codeleap.co.uk/careers/"

@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react'
-import HomeContent from "../../components/HomeContent"
-import ThoughtCard from "../../components/ThoughtCard"
+import { HomeContent } from "../../components/"
+import { ThoughtCard } from "../../components/"
 import Container from "../../shared/styles/Container"
 import * as S from './styled'
-import { deleteThoughtRequest, readThoughtsRequest } from "../../actions/requests/thought"
+import { deleteThoughtRequest, readThoughtsRequest } from "../../actions/"
 import { useSelector } from "react-redux"
 import { State } from "../../redux/reducers"
 import { useDispatch } from 'react-redux'
-import { deleteThougt, readThoughts, updateThought } from '../../actions/thought'
-import { updateThoughtRequest } from '../../actions/requests/thought'
-import Modal from '../../components/Modal'
-import ThoughtForm from '../../components/ThoughtForm'
-import Button from '../../components/Button'
+import { deleteThougt, readThoughts, updateThought } from '../../actions/'
+import { updateThoughtRequest } from '../../actions/requests/'
+import { Modal } from '../../components/'
+import { ThoughtForm } from '../../components/'
+import { Button } from '../../components/'
 
 const Home = () => {
   const [title, setTitle] = useState<string>('')
@@ -45,9 +45,9 @@ const Home = () => {
     try {
       console.log(selectedThoughtId)
       await updateThoughtRequest(selectedThoughtId!, { content, title })
-      dispatch(updateThought(selectedThoughtId!, {content, title }))
+      dispatch(updateThought(selectedThoughtId!, { content, title }))
       setUpdateModalOpen(false)
-    } catch(error) {
+    } catch (error) {
       console.warn("An error ocurred", error)
     }
   }
@@ -57,7 +57,7 @@ const Home = () => {
       await deleteThoughtRequest(selectedThoughtId!)
       dispatch(deleteThougt(selectedThoughtId!))
       setDeleteModalOpen(false)
-    } catch(error) {
+    } catch (error) {
       console.warn("An error ocurred", error)
     }
   }

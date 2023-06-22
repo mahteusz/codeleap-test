@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux'
-import { Thought } from '../../redux/reducers/types'
 import * as S from './styled'
 import { FaRegEdit } from 'react-icons/fa'
 import { MdDeleteForever } from 'react-icons/md'

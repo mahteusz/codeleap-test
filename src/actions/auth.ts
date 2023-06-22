@@ -1,4 +1,4 @@
-import { User } from "../redux/reducers/types";
+import { User } from "../redux/reducers/";
 import { AuthActionTypes } from "./types";
 
 export const login = (user: User) => {
