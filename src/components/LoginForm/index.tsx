@@ -3,15 +3,17 @@ import * as S from './styled'
 import Button from '../Button'
 import { useDispatch } from 'react-redux'
 import { login } from '../../actions/auth'
-
+import { useNavigate } from 'react-router-dom'
 
 const LoginForm = () => {
   const [username, setUsername] = useState<string>('')
 
+  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const onSubmit = () => {
     dispatch(login({ username }))
+    navigate("/home")
   }
 
   return (
