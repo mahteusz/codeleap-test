@@ -10,7 +10,7 @@ type StyleProps = {
   uppercase?: boolean,
   bold?: boolean,
   alignSelf?: 'center' | 'flex-end' | 'flex-start',
-  marginTop?: number,
+    marginTop?: number,
   marginRight?: number,
   marginBottom?: number,
   marginLeft?: number
