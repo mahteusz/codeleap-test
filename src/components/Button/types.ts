@@ -8,7 +8,6 @@ type StyleProps = {
   variant: 'primary' | 'outlined' | 'success' | 'warning',
   disabled?: boolean,
   uppercase?: boolean,
-  bold?: boolean,
   alignSelf?: 'center' | 'flex-end' | 'flex-start',
     marginTop?: number,
   marginRight?: number,

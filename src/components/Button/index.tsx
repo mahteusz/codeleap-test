@@ -7,7 +7,6 @@ const Button = ({ children, onClick, styleProps }: Props) => {
     <S.Button 
       variant={styleProps.variant}
       disabled={styleProps.disabled}
-      bold={styleProps.bold}
       uppercase={styleProps.uppercase}
       alignSelf={styleProps.alignSelf}
       marginTop={styleProps?.marginTop ?? 0}

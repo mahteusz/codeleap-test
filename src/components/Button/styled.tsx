@@ -12,8 +12,8 @@ export const Button = styled.button<StyleProps>`
   border-radius:8px;
   font-family:${props => props.theme.fonts.primary};
   font-size:${props => props.theme.fonts.sizes.medium};
-  font-weight:${props => props.bold ? 700 : 400};
-  text-transform:${props => props.uppercase? 'uppercase' : 'capitalize'};
+  font-weight:700;
+  text-transform:${props => props.uppercase ? 'uppercase' : 'capitalize'};
   align-self:${props => props.alignSelf ? props.alignSelf : 'center'};
   margin-top:${props => props.marginTop}px;
   margin-right:${props => props.marginRight}px;
@@ -21,22 +21,6 @@ export const Button = styled.button<StyleProps>`
   margin-left:${props => props.marginLeft}px;
 
   transition:transform 0.3s ease;
-
-  ${props => {
-    if (props.disabled) {
-      return `
-        background-color:${props.theme.colors.grey}
-      `
-    } else {
-      return `
-        &:hover {
-          transform: scale(1.05);
-          cursor:pointer;
-        }
-      `
-    }
-  }}
-
 
   ${props => {
     switch (props.variant) {
@@ -49,12 +33,16 @@ export const Button = styled.button<StyleProps>`
       case 'outlined':
         return `
           color:black;
-          background-color:white;
+          background-color:transparent;
           border:1px solid black;
           font-weight:700;
-        ` 
+        `
       case 'success':
-        return `background-color:${props.theme.colors.success}`
+        return `
+          background-color:${props.theme.colors.success};
+          color:white;
+          font-weight:700;
+        `
 
       case 'warning':
         return `
@@ -62,6 +50,22 @@ export const Button = styled.button<StyleProps>`
           font-weight:700;
           color:white;
         `
+    }
+  }}
+
+  ${props => {
+    if (props.disabled) {
+      return `
+        background-color:${props.theme.colors.grey};
+        opacity:0.8;
+      `
+    } else {
+      return `
+        &:hover {
+          transform: scale(1.05);
+          cursor:pointer;
+        }
+      `
     }
   }}
 `
