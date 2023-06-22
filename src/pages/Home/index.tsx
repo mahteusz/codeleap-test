@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { HomeContent } from "../../components/"
+import { HomeContent, Spinner } from "../../components/"
 import { ThoughtCard } from "../../components/"
 import Container from "../../shared/styles/Container"
 import * as S from './styled'
@@ -143,6 +143,7 @@ const Home = () => {
             )
           })
         }
+        {isLoadingData && <Spinner />}
       </S.ContentContainer>
     </Container>
   )
