@@ -14,7 +14,7 @@ export const SpinnerBody = styled.div<Props>`
   height: ${(props) => (props.height ? props.height : "32px")};
   width: ${(props) => (props.width ? props.width : "32px")};
   border: ${(props) =>
-    (props.borderWidth ? props.borderWidth : "4px")} solid ${props => props.theme.colors.grey};
+    (props.borderWidth ? props.borderWidth : "4px")} solid ${props => props.theme.colors.light};
   border-top-color: ${(props) =>
     (props.borderColor ? props.borderColor : props.theme.colors.primary)};
   border-radius: 50%;

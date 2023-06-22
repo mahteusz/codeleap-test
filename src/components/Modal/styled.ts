@@ -39,8 +39,7 @@ export const ModalTitle = styled.h1<{visible: boolean}>`
 `
 
 export const ButtonsContainer = styled.div`
-  margin:${props => props.theme.spacing.default}px;
-  margin-top:0;
+  margin:0 ${props => props.theme.spacing.default}px;
   display:flex;
   align-self:flex-end;
   gap:${props => props.theme.spacing.small}px;
