@@ -33,6 +33,7 @@ const LoginForm = () => {
           variant: "primary",
           alignSelf: 'flex-end',
           marginTop: 16,
+          disabled: username === ""
         }}
       >
         Enter
