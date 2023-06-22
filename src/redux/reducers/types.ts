@@ -11,5 +11,6 @@ export type Thought = {
 }
 
 export type ThoughtState = {
-  readonly data: Thought[]
+  readonly data: Thought[],
+  currentOffset: number
 }

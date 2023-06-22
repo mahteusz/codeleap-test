@@ -19,6 +19,7 @@ const Home = () => {
   const [selectedThoughtId, setSelectedThoughtId] = useState<number>()
   const [updateModalOpen, setUpdateModalOpen] = useState<boolean>(false)
   const [deleteModalOpen, setDeleteModalOpen] = useState<boolean>(false)
+  const [isLoadingData, setIsLoadingData] = useState<boolean>(true)
 
   const dispatch = useDispatch()
   const thoughts = useSelector((state: State) => state.thought)
@@ -62,6 +63,27 @@ const Home = () => {
     }
   }
 
+  const fetchData = async () => {
+    const allThoughts = await readThoughtsRequest(thoughts.currentOffset)
+    console.log(allThoughts)
+    dispatch(readThoughts(allThoughts, thoughts.currentOffset))
+    setIsLoadingData(false)
+  }
+
+  const handleScroll = () => {
+    if (window.innerHeight + document.documentElement.scrollTop !==
+      document.documentElement.offsetHeight || isLoadingData) {
+      return
+    }
+    fetchData()
+  }
+
+  useEffect(() => {
+    fetchData()
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isLoadingData])
+
   const updateModal = (
     <Modal
       confirmButton={
@@ -95,16 +117,6 @@ const Home = () => {
     >
     </Modal>
   )
-
-  useEffect(() => {
-    const fetchAndDispatchThoughts = async () => {
-      const allThoughts = await readThoughtsRequest()
-      console.log(allThoughts)
-      dispatch(readThoughts(allThoughts))
-    }
-
-    fetchAndDispatchThoughts()
-  }, [])
 
   return (
     <Container>

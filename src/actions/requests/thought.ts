@@ -20,8 +20,8 @@ export const createThoughtRequest = async (thought: Omit<Thought, "id">): Promis
   return newThought
 }
 
-export const readThoughtsRequest = async () => {
-  const response = await fetch(url)
+export const readThoughtsRequest = async (offset: number) => {
+  const response = await fetch(`${url}?offset=${offset}`)
   const thoughts = await response.json()
   return thoughts.results
 }

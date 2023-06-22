@@ -1,8 +1,11 @@
 import { ThoughtActions } from "../../actions/"
 import { ThoughtState } from "./types"
 
+const offsetStep = 10
+
 const initialState: ThoughtState = {
-  data: []
+  data: [],
+  currentOffset: 0
 }
 
 const thoughtReducer = (state = initialState, action: ThoughtActions) => {
@@ -25,7 +28,8 @@ const thoughtReducer = (state = initialState, action: ThoughtActions) => {
     case "READ_THOUGHTS":
       return {
         ...state,
-        data: [...action.payload]
+        data: [...state.data, ...action.payload.thoughts],
+        currentOffset: action.payload.currentOffset + offsetStep 
       }
 
     case "UPDATE_THOUGHT":
