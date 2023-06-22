@@ -19,6 +19,7 @@ export const CardHeader = styled.header`
   width:100%;
   background-color:${props => props.theme.colors.primary};
   display:flex;
+  justify-content:space-between;
   align-items:center;
   padding:${props => props.theme.spacing.default}px;
   border-radius:inherit;
@@ -29,6 +30,22 @@ export const CardHeaderTitle = styled.h2`
   font-family:${props => props.theme.fonts.primary};
   font-weight:700;
   font-size:${props => props.theme.fonts.sizes.xlarge};
+`
+
+export const IconsContainer = styled.div`
+  display:flex; 
+  gap:${props => props.theme.spacing.default}px;
+  font-size:28px;
+  color:${props => props.theme.colors.light};
+
+  > * {
+    transition:transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      cursor:pointer;
+    }
+  }
 `
 
 export const CardContentContainer = styled.div`
