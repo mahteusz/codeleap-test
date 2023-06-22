@@ -55,7 +55,8 @@ const ThoughtForm = ({ type, title, content, border, padding, onTitleChange, onC
           onClick={handleSubmit}
           styleProps={{
             variant: 'primary',
-            alignSelf: 'flex-end'
+            alignSelf: 'flex-end',
+            disabled: !content || !title
           }}
         >
           Create

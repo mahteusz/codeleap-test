@@ -87,7 +87,12 @@ const Home = () => {
   const updateModal = (
     <Modal
       confirmButton={
-        <Button onClick={handleUpdateSubmit} styleProps={{ variant: 'success' }}>
+        <Button 
+          onClick={handleUpdateSubmit}
+          styleProps={{
+            variant: 'success',
+            disabled: !content || !title
+          }}>
           Save
         </Button>
       }
