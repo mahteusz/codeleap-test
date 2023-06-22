@@ -10,10 +10,11 @@ import { useDispatch } from 'react-redux'
 import { readThoughts } from '../../actions/thought'
 import { updateThoughtRequest } from '../../actions/requests/thought'
 import Modal from '../../components/Modal'
+import ThoughtForm from '../../components/ThoughtForm'
 
 const Home = () => {
-  const [title, setTitle] = useState<string>()
-  const [content, setContent] = useState<string>()
+  const [title, setTitle] = useState<string>('')
+  const [content, setContent] = useState<string>('')
   const [updateModalOpen, setUpdateModalOpen] = useState<boolean>(false)
 
   const dispatch = useDispatch()
@@ -36,6 +37,15 @@ const Home = () => {
 
   return (
     <Container>
+      <Modal>
+        <ThoughtForm 
+          content={content}
+          title={title}
+          onContentChange={setContent}
+          onTitleChange={setTitle}
+          onSubmit={handleEdit}
+        />
+      </Modal>
       <S.ContentContainer>
         <HomeContent />
         {
