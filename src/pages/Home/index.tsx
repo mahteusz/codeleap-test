@@ -64,7 +64,7 @@ const Home = () => {
     const allThoughts = await readThoughtsRequest(thoughts.currentOffset)
     console.log(allThoughts)
     dispatch(readThoughts(allThoughts, thoughts.currentOffset))
-    //setIsLoadingData(false)
+    setIsLoadingData(false)
   }
 
   const handleScroll = () => {
@@ -76,10 +76,13 @@ const Home = () => {
   }
 
   useEffect(() => {
-    fetchData()
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isLoadingData])
+
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   const updateModal = (
     <Modal
