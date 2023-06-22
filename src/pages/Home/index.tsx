@@ -11,22 +11,34 @@ import { readThoughts } from '../../actions/thought'
 import { updateThoughtRequest } from '../../actions/requests/thought'
 import Modal from '../../components/Modal'
 import ThoughtForm from '../../components/ThoughtForm'
+import Button from '../../components/Button'
 
 const Home = () => {
   const [title, setTitle] = useState<string>('')
   const [content, setContent] = useState<string>('')
+  const [selectedThoughtId, setSelectedThoughtId] = useState<number>()
   const [updateModalOpen, setUpdateModalOpen] = useState<boolean>(false)
+  const [deleteModalOpen, setDeleteModalOpen] = useState<boolean>(false)
 
   const dispatch = useDispatch()
   const thoughts = useSelector((state: State) => state.thought)
 
   const handleEdit = (id: number) => {
-    
+    setSelectedThoughtId(id)
+    setUpdateModalOpen(true)
   }
-  const handleDelete = (id: number) => {}
+
+  const handleDelete = (id: number) => {
+    setSelectedThoughtId(id)
+    setDeleteModalOpen(true)
+  }
+
+  const handleEditSubmit = async() => {
+
+  }
 
   useEffect(() => {
-    const fetchAndDispatchThoughts = async() => {
+    const fetchAndDispatchThoughts = async () => {
       const allThoughts = await readThoughtsRequest()
       console.log(allThoughts)
       dispatch(readThoughts(allThoughts))
@@ -37,20 +49,28 @@ const Home = () => {
 
   return (
     <Container>
-      <Modal>
-        <ThoughtForm 
+      <Modal
+        confirmButton={
+          <Button onClick={handleEditSubmit} styleProps={{ variant: 'success' }}>
+            Save
+          </Button>
+        }
+        open={updateModalOpen}
+        onClose={() => setUpdateModalOpen(!updateModalOpen)}
+      >
+        <ThoughtForm
+          type='update'
           content={content}
           title={title}
           onContentChange={setContent}
           onTitleChange={setTitle}
-          onSubmit={handleEdit}
         />
       </Modal>
       <S.ContentContainer>
         <HomeContent />
         {
           thoughts.data.map(thought => {
-            return(
+            return (
               <ThoughtCard
                 thought={
                   {

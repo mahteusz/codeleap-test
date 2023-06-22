@@ -7,7 +7,7 @@ import { State } from '../../redux/reducers'
 import { createThought } from '../../actions/thought'
 
 
-const ThoughtForm = ({ title, content, onTitleChange, onContentChange }: Props) => {
+const ThoughtForm = ({ type, title, content, border, padding, onTitleChange, onContentChange }: Props) => {
 
   const dispatch = useDispatch()
   const auth = useSelector((state: State) => state.auth)
@@ -24,9 +24,9 @@ const ThoughtForm = ({ title, content, onTitleChange, onContentChange }: Props) 
   }
 
   return (
-    <S.Container>
+    <S.Container border={border} padding={padding}>
       <S.ThoughtFormTitle>
-        What's on your mind?
+        {type === 'create' ? "What's on your mind?" : "Edit item"}
       </S.ThoughtFormTitle>
 
       <S.ThoughtFormItem>
@@ -49,16 +49,18 @@ const ThoughtForm = ({ title, content, onTitleChange, onContentChange }: Props) 
           value={content}
           placeholder='Content here' />
       </S.ThoughtFormItem>
-
-      <Button
-        onClick={handleSubmit}
-        styleProps={{
-          variant: 'primary',
-          alignSelf: 'flex-end'
-        }}
-      >
-        Create
-      </Button>
+      {
+        type === 'create' &&
+        <Button
+          onClick={handleSubmit}
+          styleProps={{
+            variant: 'primary',
+            alignSelf: 'flex-end'
+          }}
+        >
+          Create
+        </Button>
+      }
     </S.Container>
   )
 }

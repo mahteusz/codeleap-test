@@ -24,14 +24,14 @@ const Modal = ({ title, open, children, confirmButton, onClose }: Props) => {
     return (
       <S.Container>
         <S.ContentContainer>
-          <S.ModalTitle>
+          <S.ModalTitle visible={Boolean(title)}>
             {title}
           </S.ModalTitle>
-            {children}
+          {children}
           <S.ButtonsContainer>
-            <Button 
+            <Button
               onClick={onClose}
-              styleProps={{variant:"outlined"}}
+              styleProps={{ variant: "outlined" }}
             >
               Cancel
             </Button>

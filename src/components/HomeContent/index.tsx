@@ -14,12 +14,17 @@ const HomeContent = () => {
           CodeLeap Network
         </S.HeaderTitle>
       </S.Header>
-      <ThoughtForm
-        content={content}
-        title={title}
-        onContentChange={setContent}
-        onTitleChange={setTitle}
-      />
+      <S.FormContainer>
+        <ThoughtForm
+          type='create'
+          border
+          padding
+          content={content}
+          title={title}
+          onContentChange={setContent}
+          onTitleChange={setTitle}
+        />
+      </S.FormContainer>
     </S.Container>
   )
 }

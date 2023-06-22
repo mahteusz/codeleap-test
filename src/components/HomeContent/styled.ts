@@ -25,6 +25,11 @@ export const HeaderTitle = styled.h1`
   margin-left:37px;
 `
 
+export const FormContainer = styled.div`
+  width:100%;
+  padding: 0 ${props => props.theme.spacing.default}px;
+`
+
 export const ThoughtForm = styled.main`
   display:flex;
   flex-direction:column;

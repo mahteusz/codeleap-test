@@ -19,8 +19,8 @@ const ThoughtCard = ({ thought, onDelete, onEdit }: Props) => {
         {
           auth.username === thought.username &&
           <S.IconsContainer>
-            <MdDeleteForever onClick={onDelete(thought.id)}/>
-            <FaRegEdit onClick={onEdit(thought.id)}/>
+            <MdDeleteForever onClick={() => onDelete(thought.id)}/>
+            <FaRegEdit onClick={() => onEdit(thought.id)}/>
           </S.IconsContainer>
         }
       </S.CardHeader>

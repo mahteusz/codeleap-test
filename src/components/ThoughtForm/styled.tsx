@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-export const Container = styled.main`
+export const Container = styled.main<{border?: boolean, padding?: boolean}>`
   display:flex;
   flex-direction:column;
-  border: 1px solid ${props => props.theme.colors.grey};
+  border:${props => props.border ? `1px solid ${props.theme.colors.grey}` : 0};
   border-radius:${props => props.theme.border.radius.default}px;
-  width:95%;
-  padding:${props => props.theme.spacing.default}px;
+  width:100%;
+  padding:${props => props.padding ? `${props.theme.spacing.default}px` : 0};
 `
 
 export const ThoughtFormTitle = styled.h2`

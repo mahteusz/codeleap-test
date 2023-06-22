@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.article`
   display:flex;
-  width:95%;
+  width:100%;
   flex-direction:column;
   align-items:center;
   border-radius:${props => props.theme.border.radius.default}px

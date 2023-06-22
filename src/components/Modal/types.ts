@@ -1,5 +1,5 @@
 type Props = {
-  title: string,
+  title?: string,
   open: boolean,
   children: React.ReactNode,
   confirmButton: React.ReactNode,
