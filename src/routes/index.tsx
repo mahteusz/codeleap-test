@@ -7,6 +7,7 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Signup />} />
+        <Route path="*" element={<Signup />} />
         <Route element={<Protected redirectPath="/" />}>
           <Route path="/home" element={<Home />} />
         </Route>
