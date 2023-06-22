@@ -8,17 +8,17 @@ export const createThought = (thought: Thought) => {
   }
 }
 
-export const readThoughts = (thoughts: Thought[], currentOffset: number) => {
+export const readThoughts = (thoughts: Thought[]) => {
   return {
     type: ThoughtActionTypes.READ_THOUGHTS,
-    payload: {thoughts, currentOffset}
+    payload: thoughts
   }
 }
 
 export const updateThought = (id: number, updated: UpdateThought) => {
   return {
     type: ThoughtActionTypes.UPDATE_THOUGHT,
-    payload: {id, updated}
+    payload: { id, updated }
   }
 }
 

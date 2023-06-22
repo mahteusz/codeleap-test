@@ -36,7 +36,7 @@ type CreateThoughtAction = {
 
 type ReadAllThoughtsAction = {
   type: ThoughtActionTypes.READ_THOUGHTS,
-  payload: { thoughts: Thought[], currentOffset: number }
+  payload: Thought[] 
 }
 
 type UpdateThoughtAction = {
