@@ -26,8 +26,8 @@ export const readThoughtsRequest = async () => {
   return thoughts.results
 }
 
-export const updateThoughtRequest = async (updatedThought: UpdateThought) => {
-  const response = await fetch(url,
+export const updateThoughtRequest = async (id: number, updatedThought: UpdateThought) => {
+  const response = await fetch(`${url}${id}/`,
     {
       method: 'PATCH',
       body: JSON.stringify(updatedThought),

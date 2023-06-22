@@ -36,8 +36,10 @@ const thoughtReducer = (state = initialState, action: ThoughtActions) => {
         title: action.payload.updated.title,
         content: action.payload.updated.content
       }
+      console.log(newThoughts[index])
       return {
-        ...state, newThoughts
+        ...state,
+        data: newThoughts
       }
 
     default:
