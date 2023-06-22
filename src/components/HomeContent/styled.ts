@@ -14,7 +14,15 @@ export const Header = styled.header`
   background-color:${props => props.theme.colors.primary};
   display:flex;
   align-items:center;
+  justify-content:center;
   margin-bottom:${props => props.theme.spacing.default}px;
+`
+
+export const HeaderItemsContainer = styled.div`
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:90%;
 `
 
 export const HeaderTitle = styled.h1`
@@ -22,7 +30,6 @@ export const HeaderTitle = styled.h1`
   font-family:${props => props.theme.fonts.primary};
   font-weight:700;
   font-size:${props => props.theme.fonts.sizes.xlarge};
-  margin-left:37px;
 `
 
 export const FormContainer = styled.div`
