@@ -11,6 +11,35 @@ const ThoughtCard = ({ thought, onDelete, onEdit }: Props) => {
     return `@${thought.username}`
   }
 
+  const formatDate = () => {
+    const msPerMinute = 60 * 1000;
+    const msPerHour = msPerMinute * 60;
+    const msPerDay = msPerHour * 24;
+    const msPerMonth = msPerDay * 30;
+    const msPerYear = msPerDay * 365;
+    const date = new Date(thought.created_datetime)
+    const elapsed = Math.floor((new Date().getTime() - date.getTime()))
+
+    if (elapsed < msPerMinute) {
+      return "just now";
+    }
+    else if (elapsed < msPerHour) {
+      return Math.round(elapsed / msPerMinute) + ' minute(s) ago';
+    }
+    else if (elapsed < msPerDay) {
+      return Math.round(elapsed / msPerHour) + ' hour(s) ago';
+    }
+    else if (elapsed < msPerMonth) {
+      return Math.round(elapsed / msPerDay) + ' day(s) ago';
+    }
+    else if (elapsed < msPerYear) {
+      return Math.round(elapsed / msPerMonth) + ' month(s) ago';
+    }
+    else {
+      return Math.round(elapsed / msPerYear) + ' year(s) ago';
+    }
+  }
+
   const auth = useSelector((state: State) => state.auth)
 
   return (
@@ -22,8 +51,8 @@ const ThoughtCard = ({ thought, onDelete, onEdit }: Props) => {
         {
           auth.username === thought.username &&
           <S.IconsContainer>
-            <MdDeleteForever onClick={() => onDelete(thought.id)}/>
-            <FaRegEdit onClick={() => onEdit(thought.id)}/>
+            <MdDeleteForever onClick={() => onDelete(thought.id)} />
+            <FaRegEdit onClick={() => onEdit(thought.id)} />
           </S.IconsContainer>
         }
       </S.CardHeader>
@@ -33,7 +62,7 @@ const ThoughtCard = ({ thought, onDelete, onEdit }: Props) => {
             {formatUsername()}
           </S.CardContentUser>
           <S.CardContentTime>
-            {new Date(thought.created_datetime).toDateString()}
+            {formatDate()}
           </S.CardContentTime>
         </S.CardContentHeader>
         <S.CardContentText>
