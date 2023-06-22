@@ -14,6 +14,11 @@ export const Button = styled.button<StyleProps>`
   font-size:${props => props.theme.fonts.sizes.medium};
   font-weight:${props => props.bold ? 700 : 400};
   text-transform:${props => props.uppercase? 'uppercase' : 'capitalize'};
+  align-self:${props => props.alignSelf ? props.alignSelf : 'center'};
+  margin-top:${props => props.marginTop}px;
+  margin-right:${props => props.marginRight}px;
+  margin-bottom:${props => props.marginBottom}px;
+  margin-left:${props => props.marginLeft}px;
 
   transition:transform 0.3s ease;
 

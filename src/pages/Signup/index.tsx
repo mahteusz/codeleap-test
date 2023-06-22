@@ -1,7 +1,11 @@
+import LoginForm from "../../components/LoginForm"
+import Container from "../../shared/styles/Container"
 
 const Signup = () => {
   return (
-    <div>Signup</div>
+    <Container>
+      <LoginForm />
+    </Container>
   )
 }
 
