@@ -5,7 +5,9 @@ export const Container = styled.article`
   width:95%;
   flex-direction:column;
   align-items:center;
-  border-radius: 16px 16px 0 0;
+  border-radius:${props => props.theme.border.radius.default}px
+                ${props => props.theme.border.radius.default}px
+                0 0;
 `
 
 export const CardHeader = styled.header`
@@ -14,7 +16,7 @@ export const CardHeader = styled.header`
   background-color:${props => props.theme.colors.primary};
   display:flex;
   align-items:center;
-  padding:24px;
+  padding:${props => props.theme.spacing.default}px;
   border-radius:inherit;
 `
 
@@ -29,25 +31,25 @@ export const CardContentContainer = styled.div`
   display:flex;
   width:100%;
   flex-direction:column;
-  border: 1px solid #999;
-  padding:24px;
+  border: 1px solid ${props => props.theme.colors.grey};
+  padding:${props => props.theme.spacing.default}px;
 `
 
 export const CardContentHeader = styled.div`
   display:flex;
   justify-content:space-between;
-  margin-bottom:16px;
+  margin-bottom:${props => props.theme.spacing.small}px;
 `
 
 export const CardContentUser = styled.span`
-  color:#777;
+  color:${props => props.theme.colors.darkerGrey};
   font-family:${props => props.theme.fonts.primary};
   font-weight:700;
   font-size:${props => props.theme.fonts.sizes.large};
 `
 
 export const CardContentTime = styled.span`
-  color:#777;
+  color:${props => props.theme.colors.darkerGrey};
   font-family:${props => props.theme.fonts.primary};
   font-size:${props => props.theme.fonts.sizes.large};
 `

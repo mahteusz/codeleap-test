@@ -8,5 +8,5 @@ export const ContentContainer = styled.div`
   flex-direction:column;
   justify-content:flex-start;
   align-items:center;
-  gap:24px;
+  gap:${props => props.theme.spacing.default}px;
 `

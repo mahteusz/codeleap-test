@@ -14,7 +14,7 @@ export const Header = styled.header`
   background-color:${props => props.theme.colors.primary};
   display:flex;
   align-items:center;
-  margin-bottom:24px;
+  margin-bottom:${props => props.theme.spacing.default}px;
 `
 
 export const HeaderTitle = styled.h1`
@@ -28,10 +28,10 @@ export const HeaderTitle = styled.h1`
 export const ThoughtForm = styled.main`
   display:flex;
   flex-direction:column;
-  border: 1px solid #999;
-  border-radius:16px;
+  border: 1px solid ${props => props.theme.colors.grey};
+  border-radius:${props => props.theme.border.radius.default}px;
   width:95%;
-  padding:24px;
+  padding:${props => props.theme.spacing.default}px;
 `
 
 export const ThoughtFormTitle = styled.h2`
@@ -39,11 +39,11 @@ export const ThoughtFormTitle = styled.h2`
   font-family:${props => props.theme.fonts.primary};
   font-weight:700;
   font-size:${props => props.theme.fonts.sizes.xlarge};
-  margin-bottom:24px;
+  margin-bottom:${props => props.theme.spacing.default}px;
 `
 
 export const ThoughtFormItem = styled.div`
-  margin-bottom:24px;
+  margin-bottom:${props => props.theme.spacing.default}px;
 `
 
 export const ThoughtFormLabel = styled.label`
@@ -51,7 +51,7 @@ export const ThoughtFormLabel = styled.label`
   color:${props => props.theme.colors.dark};
   font-family:${props => props.theme.fonts.primary};
   font-size:${props => props.theme.fonts.sizes.medium};
-  margin-bottom:8px;
+  margin-bottom:${props => props.theme.spacing.xsmall}px;
 
 `
 
@@ -62,8 +62,8 @@ export const ThoughtFormInput = styled.input.attrs(({ }) => ({
   font-family:${props => props.theme.fonts.primary};
   font-size:${props => props.theme.fonts.sizes.small};
   padding: 4px 10px;
-  border-radius:8px;
-  border:1px solid #777;
+  border-radius:${props => props.theme.border.radius.small}px;
+  border:1px solid ${props => props.theme.colors.darkerGrey};
   width:100%;
 
   &::placeholder {
@@ -80,8 +80,8 @@ export const ThoughtFormTextArea = styled.textarea`
   font-family:${props => props.theme.fonts.primary};
   font-size:${props => props.theme.fonts.sizes.small};
   padding: 4px 10px;
-  border-radius:8px;
-  border:1px solid #777;
+  border-radius:${props => props.theme.spacing.small}px;
+  border:1px solid ${props => props.theme.colors.darkerGrey};
   width:100%;
   resize:none;
 
