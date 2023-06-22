@@ -11,4 +11,11 @@ export const ContentContainer = styled.div`
   justify-content:flex-start;
   align-items:center;
   gap:${props => props.theme.spacing.default}px;
+
+  
+  @media (max-width: 900px) {
+    width:100%;
+    padding: 0;
+    padding-bottom: ${props => props.theme.spacing.default}px;
+  }
 `

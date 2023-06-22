@@ -10,6 +10,10 @@ export const FormContainer = styled.main`
   border-radius:${props => props.theme.border.radius.default}px;
   outline:0;
   padding:24px;
+
+  @media (max-width: 600px) {
+    width:90%;
+  }
 `
 
 export const ContainerTitle = styled.h1`

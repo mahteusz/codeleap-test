@@ -12,10 +12,15 @@ export const Container = styled.article`
   >:last-child {
     margin-bottom:${props => props.theme.spacing.default}px;
   }
+
+  @media (max-width: 900px) {
+    width:100%;
+    padding: 0 ${props => props.theme.spacing.default}px;
+  }
 `
 
 export const CardHeader = styled.header`
-  height:70px;
+  min-height:70px;
   width:100%;
   background-color:${props => props.theme.colors.primary};
   display:flex;
@@ -23,6 +28,12 @@ export const CardHeader = styled.header`
   align-items:center;
   padding:${props => props.theme.spacing.default}px;
   border-radius:inherit;
+
+  @media (max-width: 900px) {
+    flex-direction:column;
+    gap:${props => props.theme.spacing.small}px;
+  }
+  
 `
 
 export const CardHeaderTitle = styled.h2`
@@ -30,6 +41,7 @@ export const CardHeaderTitle = styled.h2`
   font-family:${props => props.theme.fonts.primary};
   font-weight:700;
   font-size:${props => props.theme.fonts.sizes.xlarge};
+  word-break: break-all;
 `
 
 export const IconsContainer = styled.div`
@@ -45,6 +57,11 @@ export const IconsContainer = styled.div`
       transform: scale(1.1);
       cursor:pointer;
     }
+  }
+
+  @media (max-width: 900px) {
+    width:80%;
+    justify-content:space-between;
   }
 `
 
@@ -63,6 +80,12 @@ export const CardContentHeader = styled.div`
   display:flex;
   justify-content:space-between;
   margin-bottom:${props => props.theme.spacing.small}px;
+
+  @media (max-width: 900px) {
+    flex-direction:column;
+    align-items:center;
+    gap:${props => props.theme.spacing.small}px;
+  }
 `
 
 export const CardContentUser = styled.span`
@@ -82,4 +105,5 @@ export const CardContentText = styled.span`
   color:${props => props.theme.colors.dark};
   font-family:${props => props.theme.fonts.primary};
   font-size:${props => props.theme.fonts.sizes.large};
+  word-break: break-all;
 `
