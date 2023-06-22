@@ -3,11 +3,11 @@ import HomeContent from "../../components/HomeContent"
 import ThoughtCard from "../../components/ThoughtCard"
 import Container from "../../shared/styles/Container"
 import * as S from './styled'
-import { readThoughtsRequest } from "../../actions/requests/thought"
+import { deleteThoughtRequest, readThoughtsRequest } from "../../actions/requests/thought"
 import { useSelector } from "react-redux"
 import { State } from "../../redux/reducers"
 import { useDispatch } from 'react-redux'
-import { readThoughts, updateThoughts } from '../../actions/thought'
+import { deleteThougt, readThoughts, updateThought } from '../../actions/thought'
 import { updateThoughtRequest } from '../../actions/requests/thought'
 import Modal from '../../components/Modal'
 import ThoughtForm from '../../components/ThoughtForm'
@@ -45,7 +45,7 @@ const Home = () => {
     try {
       console.log(selectedThoughtId)
       await updateThoughtRequest(selectedThoughtId!, { content, title })
-      dispatch(updateThoughts(selectedThoughtId!, {content, title }))
+      dispatch(updateThought(selectedThoughtId!, {content, title }))
       setUpdateModalOpen(false)
     } catch(error) {
       console.warn("An error ocurred", error)
@@ -53,7 +53,13 @@ const Home = () => {
   }
 
   const handleDeleteSubmit = async () => {
-
+    try {
+      await deleteThoughtRequest(selectedThoughtId!)
+      dispatch(deleteThougt(selectedThoughtId!))
+      setDeleteModalOpen(false)
+    } catch(error) {
+      console.warn("An error ocurred", error)
+    }
   }
 
   const updateModal = (

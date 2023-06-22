@@ -36,11 +36,18 @@ const thoughtReducer = (state = initialState, action: ThoughtActions) => {
         title: action.payload.updated.title,
         content: action.payload.updated.content
       }
-      console.log(newThoughts[index])
       return {
         ...state,
         data: newThoughts
       }
+    
+    case "DELETE_THOUGHT":
+      const toughts = state.data.filter(thought => thought.id != action.payload)
+      return {
+        ...state,
+        data: toughts
+      }
+
 
     default:
       return state

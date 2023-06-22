@@ -8,11 +8,6 @@ export type UpdateThought = {
 export enum AuthActionTypes {
   LOGIN = "LOGIN",
   LOGOUT = "LOGOUT",
-  CREATE_POST = "CREATE_POST",
-  READ_ALL_POSTS = "READ_ALL_POSTS",
-  READ_POST = "READ_POST",
-  UPDATE_POST = "UPDATE_POST",
-  DELETE_POST = "DELETE_POST"
 }
 
 export enum ThoughtActionTypes {
@@ -51,7 +46,7 @@ type UpdateThoughtAction = {
 
 type DeleteThoughtAction = {
   type: ThoughtActionTypes.DELETE_THOUGHT
-  payload: { id: number, post: Thought }
+  payload: number
 }
 
 export type AuthActions = LoginAction | LogoutAction

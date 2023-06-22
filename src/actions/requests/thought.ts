@@ -37,3 +37,12 @@ export const updateThoughtRequest = async (id: number, updatedThought: UpdateTho
   const newThought = await response.json()
   return newThought
 }
+
+export const deleteThoughtRequest = async (id: number) => {
+  await fetch(`${url}${id}/`,
+    {
+      method: 'DELETE',
+      headers: headers
+    }
+  )
+}
