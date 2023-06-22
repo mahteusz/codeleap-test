@@ -4,8 +4,9 @@ import * as S from './styled'
 import { FaRegEdit } from 'react-icons/fa'
 import { MdDeleteForever } from 'react-icons/md'
 import { State } from '../../redux/reducers'
+import { Props } from './types'
 
-const ThoughtCard = ({ id, title, content, created_datetime, username }: Thought) => {
+const ThoughtCard = ({ thought, onDelete, onEdit }: Props) => {
 
   const auth = useSelector((state: State) => state.auth)
 
@@ -13,27 +14,27 @@ const ThoughtCard = ({ id, title, content, created_datetime, username }: Thought
     <S.Container>
       <S.CardHeader>
         <S.CardHeaderTitle>
-          {title}
+          {thought.title}
         </S.CardHeaderTitle>
         {
-          auth.username === username &&
+          auth.username === thought.username &&
           <S.IconsContainer>
-            <MdDeleteForever />
-            <FaRegEdit />
+            <MdDeleteForever onClick={onDelete(thought.id)}/>
+            <FaRegEdit onClick={onEdit(thought.id)}/>
           </S.IconsContainer>
         }
       </S.CardHeader>
       <S.CardContentContainer>
         <S.CardContentHeader>
           <S.CardContentUser>
-            {username}
+            {thought.username}
           </S.CardContentUser>
           <S.CardContentTime>
-            {new Date(created_datetime).toDateString()}
+            {new Date(thought.created_datetime).toDateString()}
           </S.CardContentTime>
         </S.CardContentHeader>
         <S.CardContentText>
-          {content}
+          {thought.content}
         </S.CardContentText>
       </S.CardContentContainer>
     </S.Container>

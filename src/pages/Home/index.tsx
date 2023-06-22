@@ -14,6 +14,9 @@ const Home = () => {
   const dispatch = useDispatch()
   const thoughts = useSelector((state: State) => state.thought)
 
+  const handleEdit = (id: number) => {}
+  const handleDelete = (id: number) => {}
+
   useEffect(() => {
     const fetchAndDispatchThoughts = async() => {
       const allThoughts = await readThoughtsRequest()
@@ -32,11 +35,17 @@ const Home = () => {
           thoughts.data.map(thought => {
             return(
               <ThoughtCard
-                id={thought.id}
-                title={thought.title}
-                content={thought.content}
-                created_datetime={thought.created_datetime}
-                username={thought.username}
+                thought={
+                  {
+                    id: thought.id,
+                    title: thought.title,
+                    content: thought.content,
+                    created_datetime: thought.created_datetime,
+                    username: thought.username
+                  }
+                }
+                onDelete={() => handleDelete(thought.id)}
+                onEdit={() => handleEdit(thought.id)}
               />
             )
           })
