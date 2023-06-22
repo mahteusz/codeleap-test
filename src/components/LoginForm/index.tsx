@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import * as S from './styled'
 import Button from '../Button'
+import { useDispatch } from 'react-redux'
+import { login } from '../../actions/auth'
 
 
 const LoginForm = () => {
-  const [username, setUsername] = useState<string>('') 
+  const [username, setUsername] = useState<string>('')
+
+  const dispatch = useDispatch()
 
   const onSubmit = () => {
-    console.log("On Submit")
+    dispatch(login({ username }))
   }
 
   return (
@@ -26,9 +30,9 @@ const LoginForm = () => {
       <Button
         onClick={onSubmit}
         styleProps={{
-          variant:"primary",
-          alignSelf:'flex-end',
-          marginTop:16,
+          variant: "primary",
+          alignSelf: 'flex-end',
+          marginTop: 16,
         }}
       >
         Enter
