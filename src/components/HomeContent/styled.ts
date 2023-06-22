@@ -6,6 +6,11 @@ export const Container = styled.div`
   display:flex;
   flex-direction:column;
   align-items:center;
+
+  @media (max-width: 900px) {
+    width:100%;
+    
+  }
 `
 
 export const Header = styled.header`
@@ -16,6 +21,8 @@ export const Header = styled.header`
   align-items:center;
   justify-content:center;
   margin-bottom:${props => props.theme.spacing.default}px;
+
+
 `
 
 export const HeaderItemsContainer = styled.div`

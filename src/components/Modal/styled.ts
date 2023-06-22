@@ -23,8 +23,12 @@ export const ContentContainer = styled.div`
   display:flex;
   flex-direction:column;
   align-items:center;
-  min-width:660px;
+  width:660px;
   border-radius:${props => props.theme.border.radius.default}px;
+  
+  @media (max-width: 900px) {
+    width:95%;
+  }
 `
 
 export const ModalTitle = styled.h1<{visible: boolean}>`
