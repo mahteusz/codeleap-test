@@ -1,10 +1,10 @@
 import { Props } from './types'
 import * as S from './styled'
 import Button from '../Button'
-import { createThoughtRequest } from '../../actions/requests/thought'
+import { createThoughtRequest } from '../../actions/'
 import { useDispatch, useSelector } from 'react-redux'
 import { State } from '../../redux/reducers'
-import { createThought } from '../../actions/thought'
+import { createThought } from '../../actions/'
 
 
 const ThoughtForm = ({ type, title, content, border, padding, onTitleChange, onContentChange }: Props) => {

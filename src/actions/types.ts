@@ -1,4 +1,4 @@
-import { Thought, User } from "../redux/reducers/types";
+import { Thought, User } from "../redux/reducers/";
 
 export type UpdateThought = {
   title: string,

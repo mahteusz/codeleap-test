@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Signup from "../pages/Signup"
-import Home from "../pages/Home"
-import Protected from "../components/Protected"
+import { Protected } from "../components/"
+import { Signup } from "../pages/"
+import { Home } from "../pages/"
 
 const AppRoutes = () => {
   return (

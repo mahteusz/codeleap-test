@@ -1,4 +1,4 @@
-import { Thought } from "../redux/reducers/types";
+import { Thought } from "../redux/reducers/";
 import { UpdateThought } from "./types"
 import { ThoughtActionTypes } from "./types";
 

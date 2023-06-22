@@ -1,4 +1,4 @@
-import { ThoughtActions } from "../../actions/types"
+import { ThoughtActions } from "../../actions/"
 import { ThoughtState } from "./types"
 
 const initialState: ThoughtState = {
