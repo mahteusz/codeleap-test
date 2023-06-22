@@ -9,10 +9,10 @@ export const createThought = (thought: Thought) => {
   }
 }
 
-export const readThoughts = (thoughts: Thought[]) => {
+export const readThoughts = (thoughts: Thought[], currentOffset: number) => {
   return {
     type: ThoughtActionTypes.READ_THOUGHTS,
-    payload: thoughts
+    payload: {thoughts, currentOffset}
   }
 }
 

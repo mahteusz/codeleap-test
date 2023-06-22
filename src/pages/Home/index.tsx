@@ -1,17 +1,14 @@
 import { useState, useEffect } from 'react'
-import { HomeContent } from "../../components/"
-import { ThoughtCard } from "../../components/"
+import { HomeContent, Spinner, ThoughtCard, Modal, ThoughtForm, Button } from "../../components/"
 import Container from "../../shared/styles/Container"
 import * as S from './styled'
-import { deleteThoughtRequest, readThoughtsRequest } from "../../actions/"
-import { useSelector } from "react-redux"
+import {
+  deleteThoughtRequest, readThoughtsRequest, updateThoughtRequest,
+  deleteThougt, readThoughts, updateThought
+}
+  from "../../actions/"
+import { useDispatch, useSelector } from "react-redux"
 import { State } from "../../redux/reducers"
-import { useDispatch } from 'react-redux'
-import { deleteThougt, readThoughts, updateThought } from '../../actions/'
-import { updateThoughtRequest } from '../../actions/requests/'
-import { Modal } from '../../components/'
-import { ThoughtForm } from '../../components/'
-import { Button } from '../../components/'
 
 const Home = () => {
   const [title, setTitle] = useState<string>('')
@@ -19,6 +16,7 @@ const Home = () => {
   const [selectedThoughtId, setSelectedThoughtId] = useState<number>()
   const [updateModalOpen, setUpdateModalOpen] = useState<boolean>(false)
   const [deleteModalOpen, setDeleteModalOpen] = useState<boolean>(false)
+  const [isLoadingData, setIsLoadingData] = useState<boolean>(true)
 
   const dispatch = useDispatch()
   const thoughts = useSelector((state: State) => state.thought)
@@ -62,6 +60,27 @@ const Home = () => {
     }
   }
 
+  const fetchData = async () => {
+    const allThoughts = await readThoughtsRequest(thoughts.currentOffset)
+    console.log(allThoughts)
+    dispatch(readThoughts(allThoughts, thoughts.currentOffset))
+    setIsLoadingData(false)
+  }
+
+  const handleScroll = () => {
+    if (window.innerHeight + document.documentElement.scrollTop !==
+      document.documentElement.offsetHeight || isLoadingData) {
+      return
+    }
+    fetchData()
+  }
+
+  useEffect(() => {
+    fetchData()
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isLoadingData])
+
   const updateModal = (
     <Modal
       confirmButton={
@@ -96,16 +115,6 @@ const Home = () => {
     </Modal>
   )
 
-  useEffect(() => {
-    const fetchAndDispatchThoughts = async () => {
-      const allThoughts = await readThoughtsRequest()
-      console.log(allThoughts)
-      dispatch(readThoughts(allThoughts))
-    }
-
-    fetchAndDispatchThoughts()
-  }, [])
-
   return (
     <Container>
       {updateModal}
@@ -131,6 +140,7 @@ const Home = () => {
             )
           })
         }
+        {isLoadingData && <Spinner />}
       </S.ContentContainer>
     </Container>
   )
