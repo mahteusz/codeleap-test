@@ -1,4 +1,5 @@
 import { Thought } from "../../redux/reducers/types"
+import { UpdateThought } from "../types"
 
 const url = "https://dev.codeleap.co.uk/careers/"
 
@@ -23,4 +24,16 @@ export const readThoughtsRequest = async () => {
   const response = await fetch(url)
   const thoughts = await response.json()
   return thoughts.results
+}
+
+export const updateThoughtRequest = async (updatedThought: UpdateThought) => {
+  const response = await fetch(url,
+    {
+      method: 'PATCH',
+      body: JSON.stringify(updatedThought),
+      headers: headers
+    }
+  )
+  const newThought = await response.json()
+  return newThought
 }

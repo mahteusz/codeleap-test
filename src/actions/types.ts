@@ -1,5 +1,10 @@
 import { Thought, User } from "../redux/reducers/types";
 
+export type UpdateThought = {
+  title: string,
+  content: string
+} 
+
 export enum AuthActionTypes {
   LOGIN = "LOGIN",
   LOGOUT = "LOGOUT",
@@ -41,12 +46,12 @@ type ReadAllThoughtsAction = {
 
 type UpdateThoughtAction = {
   type: ThoughtActionTypes.UPDATE_THOUGHT,
-  payload: { id: string, post: Partial<Thought> }
+  payload: { id: number, updated: UpdateThought }
 }
 
 type DeleteThoughtAction = {
   type: ThoughtActionTypes.DELETE_THOUGHT
-  payload: { id: string, post: Thought }
+  payload: { id: number, post: Thought }
 }
 
 export type AuthActions = LoginAction | LogoutAction
