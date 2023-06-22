@@ -13,8 +13,7 @@ export enum AuthActionTypes {
 export enum ThoughtActionTypes {
 
   CREATE_THOUGHT = "CREATE_THOUGHT",
-  READ_ALL_THOUGHTS= "READ_ALL_THOUGHTS",
-  READ_THOUGHT = "READ_THOUGHT",
+  READ_THOUGHTS= "READ_THOUGHTS",
   UPDATE_THOUGHT = "UPDATE_THOUGHT",
   DELETE_THOUGHT = "DELETE_THOUGHT"
 
@@ -36,13 +35,8 @@ type CreateThoughtAction = {
 }
 
 type ReadAllThoughtsAction = {
-  type: ThoughtActionTypes.READ_ALL_THOUGHTS,
+  type: ThoughtActionTypes.READ_THOUGHTS,
   payload: Thought[]
-}
-
-type ReadThoughtAction = {
-  type: ThoughtActionTypes.READ_THOUGHT,
-  payload: { id: string, post: Thought }
 }
 
 type UpdateThoughtAction = {
@@ -60,6 +54,5 @@ export type AuthActions = LoginAction | LogoutAction
 export type ThoughtActions =
             CreateThoughtAction |
             ReadAllThoughtsAction |
-            ReadThoughtAction |
             UpdateThoughtAction |
             DeleteThoughtAction

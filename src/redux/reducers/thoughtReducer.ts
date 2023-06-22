@@ -10,15 +10,20 @@ const thoughtReducer = (state = initialState, action: ThoughtActions) => {
     case "CREATE_THOUGHT":
       return {
         data: [
-          ...state.data,
           {
             id: action.payload.id,
             username: action.payload.username,
             created_datetime: action.payload.created_datetime,
             title: action.payload.title,
             content: action.payload.content
-          }
+          },
+          ...state.data
         ]
+      }
+    
+    case "READ_THOUGHTS":
+      return {
+        data: [...action.payload]
       }
 
     default:

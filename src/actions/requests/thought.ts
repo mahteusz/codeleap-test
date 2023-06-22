@@ -18,3 +18,9 @@ export const createThoughtRequest = async (thought: Omit<Thought, "id">): Promis
   const newThought = await response.json()
   return newThought
 }
+
+export const readThoughtsRequest = async () => {
+  const response = await fetch(url)
+  const thoughts = await response.json()
+  return thoughts.results
+}

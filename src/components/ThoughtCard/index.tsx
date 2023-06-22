@@ -15,7 +15,7 @@ const ThoughtCard = ({ id, title, content, created_datetime, username }: Thought
             {username}
           </S.CardContentUser>
           <S.CardContentTime>
-            {created_datetime.toISOString()}
+            {new Date(created_datetime).toDateString()}
           </S.CardContentTime>
         </S.CardContentHeader>
         <S.CardContentText>
