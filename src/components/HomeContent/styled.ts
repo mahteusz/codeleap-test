@@ -7,6 +7,7 @@ export const Container = styled.div`
   display:flex;
   flex-direction:column;
   align-items:center;
+  gap:24px;
 `
 
 export const Header = styled.header`
@@ -26,7 +27,7 @@ export const HeaderTitle = styled.h1`
   margin-left:37px;
 `
 
-export const PostForm = styled.main`
+export const ThoughtForm = styled.main`
   display:flex;
   flex-direction:column;
   border: 1px solid #999;
@@ -35,7 +36,7 @@ export const PostForm = styled.main`
   padding:24px;
 `
 
-export const PostFormTitle = styled.h2`
+export const ThoughtFormTitle = styled.h2`
   color:${props => props.theme.colors.dark};
   font-family:${props => props.theme.fonts.primary};
   font-weight:700;
@@ -43,11 +44,11 @@ export const PostFormTitle = styled.h2`
   margin-bottom:24px;
 `
 
-export const PostFormItem = styled.div`
+export const ThoughtFormItem = styled.div`
   margin-bottom:24px;
 `
 
-export const PostFormLabel = styled.label`
+export const ThoughtFormLabel = styled.label`
   display:inline-block;
   color:${props => props.theme.colors.dark};
   font-family:${props => props.theme.fonts.primary};
@@ -56,7 +57,7 @@ export const PostFormLabel = styled.label`
 
 `
 
-export const PostFormInput = styled.input.attrs(({ }) => ({
+export const ThoughtFormInput = styled.input.attrs(({ }) => ({
   type: ''
 }))`
   color:${props => props.theme.colors.dark};
@@ -76,7 +77,7 @@ export const PostFormInput = styled.input.attrs(({ }) => ({
   }
 `
 
-export const PostFormTextArea = styled.textarea`
+export const ThoughtFormTextArea = styled.textarea`
   color:${props => props.theme.colors.dark};
   font-family:${props => props.theme.fonts.primary};
   font-size:${props => props.theme.fonts.sizes.small};

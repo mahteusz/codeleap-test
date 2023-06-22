@@ -5,7 +5,8 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { State } from '../../redux/reducers'
 import { createThoughtRequest } from '../../actions/requests/thought'
-import { createThought } from '../../actions/Thought'
+import ThoughtCard from '../ThoughtCard'
+import { createThought } from '../../actions/thought'
 
 const HomeContent = () => {
 
@@ -24,7 +25,6 @@ const HomeContent = () => {
     } catch (error) {
       console.warn("An error ocurred")
     }
-
   }
 
   return (
@@ -35,31 +35,31 @@ const HomeContent = () => {
         </S.HeaderTitle>
       </S.Header>
 
-      <S.PostForm>
-        <S.PostFormTitle>
+      <S.ThoughtForm>
+        <S.ThoughtFormTitle>
           What's on your mind?
-        </S.PostFormTitle>
+        </S.ThoughtFormTitle>
 
-        <S.PostFormItem>
-          <S.PostFormLabel>
+        <S.ThoughtFormItem>
+          <S.ThoughtFormLabel>
             Title
-          </S.PostFormLabel>
-          <S.PostFormInput
+          </S.ThoughtFormLabel>
+          <S.ThoughtFormInput
             onChange={(e) => setTitle(e.target.value)}
             value={title}
             placeholder='Hello world'
           />
-        </S.PostFormItem>
+        </S.ThoughtFormItem>
 
-        <S.PostFormItem>
-          <S.PostFormLabel>
+        <S.ThoughtFormItem>
+          <S.ThoughtFormLabel>
             Content
-          </S.PostFormLabel>
-          <S.PostFormTextArea
+          </S.ThoughtFormLabel>
+          <S.ThoughtFormTextArea
             onChange={(e) => setContent(e.target.value)}
             value={content}
             placeholder='Content here' />
-        </S.PostFormItem>
+        </S.ThoughtFormItem>
 
         <Button
           onClick={handleSubmit}
@@ -70,7 +70,9 @@ const HomeContent = () => {
         >
           Create
         </Button>
-      </S.PostForm>
+      </S.ThoughtForm>
+
+      <ThoughtCard />
     </S.Container>
   )
 }
