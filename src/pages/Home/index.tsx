@@ -46,6 +46,7 @@ const Home = () => {
       console.log(selectedThoughtId)
       await updateThoughtRequest(selectedThoughtId!, { content, title })
       dispatch(updateThoughts(selectedThoughtId!, {content, title }))
+      setUpdateModalOpen(false)
     } catch(error) {
       console.warn("An error ocurred", error)
     }
