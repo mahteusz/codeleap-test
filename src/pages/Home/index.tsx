@@ -41,7 +41,6 @@ const Home = () => {
 
   const handleUpdateSubmit = async () => {
     try {
-      console.log(selectedThoughtId)
       await updateThoughtRequest(selectedThoughtId!, { content, title })
       dispatch(updateThought(selectedThoughtId!, { content, title }))
       setUpdateModalOpen(false)
@@ -62,7 +61,6 @@ const Home = () => {
 
   const fetchData = async () => {
     const allThoughts = await readThoughtsRequest(thoughts.currentOffset)
-    console.log(allThoughts)
     dispatch(readThoughts(allThoughts, thoughts.currentOffset))
     setIsLoadingData(false)
   }

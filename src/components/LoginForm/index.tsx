@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
 import * as S from './styled'
-import Button from '../Button'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../actions/'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 import { State } from '../../redux/reducers'
-import Spinner from '../Spinner'
+import { Spinner, Button } from '../'
 
 const LoginForm = () => {
   const [loading, setLoading] = useState<boolean>(true)
