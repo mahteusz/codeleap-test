@@ -1,7 +1,11 @@
+import HomeContent from "../../components/HomeContent"
+import Container from "../../shared/styles/Container"
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <Container>
+      <HomeContent />
+    </Container>
   )
 }
 
