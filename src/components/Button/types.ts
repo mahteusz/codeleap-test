@@ -1,5 +1,5 @@
 type Props = {
-  text: string,
+  children: string | JSX.Element,
   onClick: React.MouseEventHandler,
   styleProps: StyleProps
 }
