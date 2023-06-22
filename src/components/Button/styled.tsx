@@ -36,7 +36,10 @@ export const Button = styled.button<StyleProps>`
   ${props => {
     switch (props.variant) {
       case 'primary':
-        return `background-color:${props.theme.colors.primary}`
+        return `
+          background-color:${props.theme.colors.primary};
+          color:white;
+        `
 
       case 'outlined':
         return `
@@ -44,7 +47,7 @@ export const Button = styled.button<StyleProps>`
           background-color:white;
           border:1px solid black;
           font-weight:700;
-    `
+        ` 
       case 'success':
         return `background-color:${props.theme.colors.success}`
 
@@ -53,7 +56,7 @@ export const Button = styled.button<StyleProps>`
           background-color:${props.theme.colors.warning};
           font-weight:700;
           color:white;
-    `
+        `
     }
   }}
 `
