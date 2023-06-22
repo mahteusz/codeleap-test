@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
 export const Container = styled.article`
-  width:95%;
-  background-color:${props => props.theme.colors.light};
   display:flex;
+  width:95%;
   flex-direction:column;
   align-items:center;
   border-radius: 16px 16px 0 0;

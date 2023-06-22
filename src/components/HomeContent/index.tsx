@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { State } from '../../redux/reducers'
 import { createThoughtRequest } from '../../actions/requests/thought'
-import ThoughtCard from '../ThoughtCard'
 import { createThought } from '../../actions/thought'
 
 const HomeContent = () => {
@@ -72,7 +71,6 @@ const HomeContent = () => {
         </Button>
       </S.ThoughtForm>
 
-      <ThoughtCard />
     </S.Container>
   )
 }

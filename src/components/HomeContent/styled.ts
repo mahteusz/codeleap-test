@@ -2,12 +2,10 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width:800px;
-  height:100vh;
   background-color:${props => props.theme.colors.light};
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:24px;
 `
 
 export const Header = styled.header`
