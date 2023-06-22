@@ -64,7 +64,7 @@ const Home = () => {
     const allThoughts = await readThoughtsRequest(thoughts.currentOffset)
     console.log(allThoughts)
     dispatch(readThoughts(allThoughts, thoughts.currentOffset))
-    setIsLoadingData(false)
+    //setIsLoadingData(false)
   }
 
   const handleScroll = () => {
