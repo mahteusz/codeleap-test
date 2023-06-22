@@ -10,6 +10,7 @@ export const Button = styled.button<StyleProps>`
   height:32px;
   border:0;
   border-radius:8px;
+  color:${props => props.theme.colors.light};
   font-family:${props => props.theme.fonts.primary};
   font-size:${props => props.theme.fonts.sizes.medium};
   font-weight:700;
@@ -27,20 +28,18 @@ export const Button = styled.button<StyleProps>`
       case 'primary':
         return `
           background-color:${props.theme.colors.primary};
-          color:white;
         `
 
       case 'outlined':
         return `
-          color:black;
+          color:${props.theme.colors.dark};
           background-color:transparent;
-          border:1px solid black;
+          border:1px solid ${props.theme.colors.dark};
           font-weight:700;
         `
       case 'success':
         return `
           background-color:${props.theme.colors.success};
-          color:white;
           font-weight:700;
         `
 
@@ -48,7 +47,6 @@ export const Button = styled.button<StyleProps>`
         return `
           background-color:${props.theme.colors.warning};
           font-weight:700;
-          color:white;
         `
     }
   }}
@@ -57,7 +55,7 @@ export const Button = styled.button<StyleProps>`
     if (props.disabled) {
       return `
         background-color:${props.theme.colors.grey};
-        opacity:0.8;
+        opacity:0.65;
       `
     } else {
       return `
