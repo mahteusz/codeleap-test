@@ -48,6 +48,13 @@ export const Button = styled.button<StyleProps>`
           background-color:${props.theme.colors.warning};
           font-weight:700;
         `
+      case 'outlined-light':
+        return `
+          color:${props.theme.colors.light};
+          background-color:transparent;
+          border:1px solid ${props.theme.colors.light};
+          font-weight:700;
+        `
     }
   }}
 

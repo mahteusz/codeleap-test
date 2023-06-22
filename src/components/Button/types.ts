@@ -5,7 +5,7 @@ type Props = {
 }
 
 type StyleProps = {
-  variant: 'primary' | 'outlined' | 'success' | 'warning',
+  variant: 'primary' | 'outlined' | 'success' | 'warning' | 'outlined-light',
   disabled?: boolean,
   uppercase?: boolean,
   alignSelf?: 'center' | 'flex-end' | 'flex-start',
