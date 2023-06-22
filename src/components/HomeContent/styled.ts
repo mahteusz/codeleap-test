@@ -61,6 +61,7 @@ export const PostFormInput = styled.input.attrs(({ }) => ({
 }))`
   color:${props => props.theme.colors.dark};
   font-family:${props => props.theme.fonts.primary};
+  font-size:${props => props.theme.fonts.sizes.small};
   padding: 4px 10px;
   border-radius:8px;
   border:1px solid #777;
@@ -78,6 +79,7 @@ export const PostFormInput = styled.input.attrs(({ }) => ({
 export const PostFormTextArea = styled.textarea`
   color:${props => props.theme.colors.dark};
   font-family:${props => props.theme.fonts.primary};
+  font-size:${props => props.theme.fonts.sizes.small};
   padding: 4px 10px;
   border-radius:8px;
   border:1px solid #777;

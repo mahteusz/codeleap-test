@@ -1,7 +1,32 @@
+import { useState } from 'react'
 import Button from '../Button'
 import * as S from './styled'
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { State } from '../../redux/reducers'
+import { createThoughtRequest } from '../../actions/requests/thought'
+import { createThought } from '../../actions/Thought'
 
 const HomeContent = () => {
+
+  const [title, setTitle] = useState<string>('')
+  const [content, setContent] = useState<string>('')
+
+  const dispatch = useDispatch()
+  const auth = useSelector((state: State) => state.auth)
+
+  const handleSubmit = async () => {
+    try {
+      const thought = await createThoughtRequest({
+        title, content, created_datetime: new Date(), username: auth.username!
+      })
+      dispatch(createThought(thought))
+    } catch (error) {
+      console.warn("An error ocurred")
+    }
+
+  }
+
   return (
     <S.Container>
       <S.Header>
@@ -16,21 +41,28 @@ const HomeContent = () => {
         </S.PostFormTitle>
 
         <S.PostFormItem>
-        <S.PostFormLabel>
-          Title
-        </S.PostFormLabel>
-        <S.PostFormInput placeholder='Hello world'/>
+          <S.PostFormLabel>
+            Title
+          </S.PostFormLabel>
+          <S.PostFormInput
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+            placeholder='Hello world'
+          />
         </S.PostFormItem>
 
         <S.PostFormItem>
-        <S.PostFormLabel>
-          Content
-        </S.PostFormLabel>
-        <S.PostFormTextArea placeholder='Content here'/>
+          <S.PostFormLabel>
+            Content
+          </S.PostFormLabel>
+          <S.PostFormTextArea
+            onChange={(e) => setContent(e.target.value)}
+            value={content}
+            placeholder='Content here' />
         </S.PostFormItem>
 
-        <Button 
-          onClick={() => {}}
+        <Button
+          onClick={handleSubmit}
           styleProps={{
             variant: 'primary',
             alignSelf: 'flex-end'
