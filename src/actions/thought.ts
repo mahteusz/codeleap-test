@@ -16,9 +16,16 @@ export const readThoughts = (thoughts: Thought[]) => {
   }
 }
 
-export const updateThoughts = (id: number, updated: UpdateThought) => {
+export const updateThought = (id: number, updated: UpdateThought) => {
   return {
     type: ThoughtActionTypes.UPDATE_THOUGHT,
     payload: {id, updated}
+  }
+}
+
+export const deleteThougt = (id: number) => {
+  return {
+    type: ThoughtActionTypes.DELETE_THOUGHT,
+    payload: id
   }
 }
